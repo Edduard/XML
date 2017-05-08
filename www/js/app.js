@@ -36,7 +36,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         url: '/tabel',
         views: {
           'menuContent': {
-            templateUrl: 'XML/tabel.html',
+            templateUrl: 'templates/tabel.html',
             controller: 'TabelCtrl'
           }
         }

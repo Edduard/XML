@@ -38,6 +38,7 @@
 <!ELEMENT zi (#PCDATA)>
 <!ELEMENT ora (#PCDATA)>
 ]>
+
 <firma>
     <comenzi>
         <comanda>

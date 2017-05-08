@@ -104,7 +104,7 @@ angular.module('starter.controllers', [])
 
     $scope.load = function () {
       xhr = new XMLHttpRequest();
-      xhr.open('GET', XMLuri, false);
+      xhr.open('GET', $scope.XMLuri, false);
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
           var x2js = new X2JS();
@@ -125,7 +125,46 @@ angular.module('starter.controllers', [])
     // Incarca tot din local storage
     $scope.$on('$ionicView.enter', function (e) {
       $scope.firma = StorageService.loadData('firma');
+      $scope.XMLuri = StorageService.loadData('XMLuri', $scope.XMLuri);
+
+      cleanPage();
+      displayResult();
     });
+
+    function loadXMLDoc(filename) {
+      if (window.ActiveXObject) {
+        xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+      } else {
+        xhttp = new XMLHttpRequest();
+      }
+      xhttp.open("GET", filename, false);
+      try {
+        xhttp.responseType = "msxml-document"
+      } catch (err) {} // Helping IE11
+      xhttp.send("");
+      return xhttp.responseXML;
+    }
+
+    function displayResult() {
+      xml = loadXMLDoc($scope.XMLuri);
+      xsl = loadXMLDoc("XML/XSLfirma.xsl");
+      // code for IE
+      if (window.ActiveXObject || xhttp.responseType == "msxml-document") {
+        ex = xml.transformNode(xsl);
+        document.getElementById("tabelFirma").innerHTML = ex;
+      }
+      // code for Chrome, Firefox, Opera, etc.
+      else if (document.implementation && document.implementation.createDocument) {
+        xsltProcessor = new XSLTProcessor();
+        xsltProcessor.importStylesheet(xsl);
+        resultDocument = xsltProcessor.transformToFragment(xml, document);
+        document.getElementById("tabelFirma").appendChild(resultDocument);
+      }
+    }
+
+    function cleanPage() {
+      document.getElementById("tabelFirma").innerHTML = "";
+    }
   })
 
   /*
