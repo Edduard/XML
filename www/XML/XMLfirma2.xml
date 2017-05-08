@@ -1,0 +1,220 @@
+<!DOCTYPE firma
+[
+<!ELEMENT firma (comenzi)>
+<!ELEMENT comenzi (comanda+)>
+<!ELEMENT comanda (IDcomanda, tipComanda, tipColet, colet, curier, data)>
+<!ELEMENT IDcomanda (#PCDATA)>
+<!ELEMENT tipComanda (#PCDATA)>
+<!ELEMENT tipColet (#PCDATA)>
+<!ELEMENT colet (IDcolet, greutate, dimensiuni, expeditor, destinatar)>
+<!ELEMENT IDcolet (#PCDATA)>
+<!ELEMENT greutate (#PCDATA)>
+<!ELEMENT dimensiuni (inaltime, latime, lungime)>
+<!ELEMENT inaltime (#PCDATA)>
+<!ELEMENT latime (#PCDATA)>
+<!ELEMENT lungime (#PCDATA)>
+<!ELEMENT expeditor (nume, prenume, telefon, adresa)>
+<!ELEMENT nume (#PCDATA)>
+<!ELEMENT prenume (#PCDATA)>
+<!ELEMENT telefon (#PCDATA)>
+<!ELEMENT adresa (judet, oras, strada, numar, bloc, apartament)>
+<!ELEMENT judet (#PCDATA)>
+<!ELEMENT oras (#PCDATA)>
+<!ELEMENT strada (#PCDATA)>
+<!ELEMENT numar (#PCDATA)>
+<!ELEMENT bloc (#PCDATA)>
+<!ELEMENT apartament (#PCDATA)>
+<!ELEMENT destinatar (nume, prenume, telefon, adresa)>
+<!ELEMENT curier (IDcurier, nume, prenume, telefon, masina)>
+<!ELEMENT IDcurier (#PCDATA)>
+<!ELEMENT masina (marca, model, numarInmatriculare, tipMasina)>
+<!ELEMENT marca (#PCDATA)>
+<!ELEMENT model (#PCDATA)>
+<!ELEMENT numarInmatriculare (#PCDATA)>
+<!ELEMENT tipMasina (#PCDATA)>
+<!ELEMENT data (an, luna, zi, ora)>
+<!ELEMENT an (#PCDATA)>
+<!ELEMENT luna (#PCDATA)>
+<!ELEMENT zi (#PCDATA)>
+<!ELEMENT ora (#PCDATA)>
+]>
+<firma>
+    <comenzi>
+        <comanda>
+            <IDcomanda>23</IDcomanda>
+            <tipComanda>livrare</tipComanda>
+            <tipColet>colet</tipColet>
+            <colet>
+                <IDcolet>129</IDcolet>
+                <greutate>10</greutate>
+                <dimensiuni>
+                    <inaltime>55</inaltime>
+                    <latime>25</latime>
+                    <lungime>20</lungime>
+                </dimensiuni>
+                <expeditor>
+                    <nume>Endava SRL</nume>
+                    <prenume>-</prenume>
+                    <telefon>0703000000</telefon>
+                    <adresa>
+                        <judet>Bucuresti</judet>
+                        <oras>Bucuresti</oras>
+                        <strada>Bulevardul Vasile Milea</strada>
+                        <numar>33</numar>
+                        <bloc>-</bloc>
+                        <apartament>-</apartament>
+                    </adresa>        
+                </expeditor>
+                <destinatar>
+                    <nume>Eduard</nume>
+                    <prenume>Lache</prenume>
+                    <telefon>0798765432</telefon>
+                    <adresa>
+                        <judet>Bucuresti</judet>
+                        <oras>Bucuresti</oras>
+                        <strada>Splaiul Independentei</strada>
+                        <numar>290</numar>
+                        <bloc>P16</bloc>
+                        <apartament>433</apartament>
+                    </adresa>
+                </destinatar>
+            </colet>
+            <curier>
+                <IDcurier>122</IDcurier>
+                <nume>Extraordinescu</nume>
+                <prenume>Vasile</prenume>
+                <telefon>0789337543</telefon>
+                <masina>
+                    <marca>Dacia</marca>
+                    <model>Logan</model>
+                    <numarInmatriculare>B100LOG</numarInmatriculare>
+                    <tipMasina>Sedan</tipMasina>
+                </masina>
+            </curier>
+            <data>
+                <an>2017</an>
+                <luna>05</luna>
+                <zi>25</zi>
+                <ora>16:00</ora>
+            </data>
+        </comanda>
+        
+        <comanda>
+            <IDcomanda>99</IDcomanda>
+            <tipComanda>livrare</tipComanda>
+            <tipColet>pachet</tipColet>
+            <colet>
+                <IDcolet>108</IDcolet>
+                <greutate>16</greutate>
+                <dimensiuni>
+                    <inaltime>25</inaltime>
+                    <latime>35</latime>
+                    <lungime>80</lungime>
+                </dimensiuni>
+                <expeditor>
+                    <nume>eMag SRL</nume>
+                    <prenume>-</prenume>
+                    <telefon>0701230000</telefon>
+                    <adresa>
+                        <judet>Bucuresti</judet>
+                        <oras>Bucuresti</oras>
+                        <strada>Strada Crangasi</strada>
+                        <numar>32</numar>
+                        <bloc>-</bloc>
+                        <apartament>-</apartament>
+                    </adresa>        
+                </expeditor>
+                <destinatar>
+                    <nume>Razvanescu</nume>
+                    <prenume>Razvan-Teodor</prenume>
+                    <telefon>0798765432</telefon>
+                    <adresa>
+                        <judet>Bucuresti</judet>
+                        <oras>Bucuresti</oras>
+                        <strada>Splaiul Independentei</strada>
+                        <numar>290</numar>
+                        <bloc>P16</bloc>
+                        <apartament>525</apartament>
+                    </adresa>
+                </destinatar>
+            </colet>
+            <curier>
+                <IDcurier>162</IDcurier>
+                <nume>Alexandrescu</nume>
+                <prenume>Ioan</prenume>
+                <telefon>0789337333</telefon>
+                <masina>
+                    <marca>Audi</marca>
+                    <model>RS6</model>
+                    <numarInmatriculare>B111III</numarInmatriculare>
+                    <tipMasina>Sedan</tipMasina>
+                </masina>
+            </curier>
+            <data>
+                <an>2017</an>
+                <luna>06</luna>
+                <zi>29</zi>
+                <ora>20:00</ora>
+            </data>
+        </comanda>
+
+        <comanda>
+            <IDcomanda>29</IDcomanda>
+            <tipComanda>ridicare</tipComanda>
+            <tipColet>pachet</tipColet>
+            <colet>
+                <IDcolet>111</IDcolet>
+                <greutate>50</greutate>
+                <dimensiuni>
+                    <inaltime>100</inaltime>
+                    <latime>100</latime>
+                    <lungime>100</lungime>
+                </dimensiuni>
+                <expeditor>
+                    <nume>BEST Bucuresti</nume>
+                    <prenume>-</prenume>
+                    <telefon>0219800400</telefon>
+                    <adresa>
+                        <judet>Bucuresti</judet>
+                        <oras>Bucuresti</oras>
+                        <strada>Bulevardul Iuliu Maniu</strada>
+                        <numar>290</numar>
+                        <bloc>-</bloc>
+                        <apartament>-</apartament>
+                    </adresa>        
+                </expeditor>
+                <destinatar>
+                    <nume>Eduard</nume>
+                    <prenume>Lache</prenume>
+                    <telefon>0798765432</telefon>
+                    <adresa>
+                        <judet>Bucuresti</judet>
+                        <oras>Bucuresti</oras>
+                        <strada>Splaiul Independentei</strada>
+                        <numar>290</numar>
+                        <bloc>P16</bloc>
+                        <apartament>433</apartament>
+                    </adresa>
+                </destinatar>
+            </colet>
+            <curier>
+                <IDcurier>122</IDcurier>
+                <nume>Chestelescu</nume>
+                <prenume>Vochin</prenume>
+                <telefon>0781876543</telefon>
+                <masina>
+                    <marca>Mercedes</marca>
+                    <model>Sprinter</model>
+                    <numarInmatriculare>B333BBB</numarInmatriculare>
+                    <tipMasina>Duba</tipMasina>
+                </masina>
+            </curier>
+            <data>
+                <an>2017</an>
+                <luna>05</luna>
+                <zi>30</zi>
+                <ora>12:30</ora>
+            </data>
+        </comanda>
+    </comenzi>
+</firma>

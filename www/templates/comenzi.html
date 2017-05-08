@@ -1,8 +1,8 @@
 <ion-view view-title="Comenzi">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="comanda in comenzi" href="#/app/comenzi/{{comanda.id}}">
-        {{comanda.title}}
+      <ion-item ng-repeat="comanda in comenzi" href="#/app/comenzi/{{comanda.IDcomanda}}">
+        Comanda nr. {{comanda.IDcomanda}} - {{comanda.tipComanda}}
       </ion-item>
     </ion-list>
   </ion-content>

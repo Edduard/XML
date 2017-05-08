@@ -1,5 +1,86 @@
 <ion-view view-title="Comanda">
   <ion-content>
-    <h1>{{comanda}}</h1>
+    <div class="card">
+      <div class="item item-divider">
+        Comanda
+      </div>
+      <div class="item item-text-wrap">
+        <p>Numar: {{comanda.IDcomanda}}</p>
+        <p>Tip comanda: {{comanda.tipComanda}}</p>
+        <p>Data {{comanda.tipComanda}}: {{comanda.data.zi}}.{{comanda.data.luna}}.{{comanda.data.an}}</p>
+        <p>Ora {{comanda.tipComanda}}: {{comanda.data.ora}}</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="item item-divider">
+        Colet
+      </div>
+      <div class="item item-text-wrap">
+        <p>Numar: {{comanda.colet.IDcolet}}</p>
+        <p>Tip: {{comanda.tipColet}}</p>
+        <p>Greutate: {{comanda.colet.greutate}} kg</p>
+        <p>Dimensiuni: {{comanda.colet.dimensiuni.inaltime}} x {{comanda.colet.dimensiuni.latime}} x {{comanda.colet.dimensiuni.lungime}}</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="item item-divider">
+        Destinatar
+      </div>
+      <div class="item item-text-wrap">
+        <p>Nume: {{comanda.colet.destinatar.nume}}</p>
+        <p>Prenume: {{comanda.colet.destinatar.prenume}}</p>
+        <p>Telefon: {{comanda.colet.destinatar.telefon}}</p>
+      </div>
+      <div class="item item-text-wrap">
+        <p><b>Adresa</b></p>
+        <p>Oras: {{comanda.colet.destinatar.adresa.oras}}</p>
+        <p>Judet: {{comanda.colet.destinatar.adresa.judet}}</p>
+        <p>Strada: {{comanda.colet.destinatar.adresa.strada}}</p>
+        <p>Numar: {{comanda.colet.destinatar.adresa.numar}}</p>
+        <p>Bloc: {{comanda.colet.destinatar.adresa.bloc}}</p>
+        <p>Apartament: {{comanda.colet.destinatar.adresa.apartament}}</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="item item-divider">
+        Expeditor
+      </div>
+      <div class="item item-text-wrap">
+        <p>Nume: {{comanda.colet.expeditor.nume}}</p>
+        <p>Prenume: {{comanda.colet.expeditor.prenume}}</p>
+        <p>Telefon: {{comanda.colet.expeditor.telefon}}</p>
+      </div>
+      <div class="item item-text-wrap">
+        <p><b>Adresa</b></p>
+        <p>Oras: {{comanda.colet.expeditor.adresa.oras}} </p>
+        <p>Judet: {{comanda.colet.expeditor.adresa.judet}}</p>
+        <p>Strada: {{comanda.colet.expeditor.adresa.strada}}</p>
+        <p>Numar: {{comanda.colet.expeditor.adresa.numar}}</p>
+        <p>Bloc: {{comanda.colet.expeditor.adresa.bloc}}</p>
+        <p>Apartament: {{comanda.colet.expeditor.adresa.apartament}}</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="item item-divider">
+        Curier
+      </div>
+      <div class="item item-text-wrap">
+        <p>Nume: {{comanda.curier.nume}}</p>
+        <p>Prenume: {{comanda.curier.prenume}}</p>
+        <p>Telefon: {{comanda.curier.telefon}}</p>
+      </div>
+      <div class="item item-text-wrap">
+        <p><b>Masina</b></p>
+        <p>Marca: {{comanda.curier.masina.marca}} </p>
+        <p>Model: {{comanda.curier.masina.model}}</p>
+        <p>Nr. Inmatriculare: {{comanda.curier.masina.numarInmatriculare}}</p>
+        <p>Tip Masina: {{comanda.curier.masina.tipMasina}}</p>
+      </div>
+    </div>
+
   </ion-content>
 </ion-view>

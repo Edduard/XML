@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-  .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
+  .controller('AppCtrl', function ($scope, $ionicModal, $timeout, StorageService) {
 
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
@@ -9,21 +9,47 @@ angular.module('starter.controllers', [])
     //$scope.$on('$ionicView.enter', function(e) {
     //});
 
-
   })
 
+  /*
+
+    ----------------   Comenzi Controller   ----------------    
+
+  */
   .controller('ComenziCtrl', function ($scope, StorageService) {
     // Incarca comenzile din local storage
     $scope.$on('$ionicView.enter', function (e) {
       var firma = StorageService.loadData('firma');
-      $scope.comenzi = firma.comenzi;
+      $scope.comenzi = firma.comenzi.comanda;
     });
   })
 
+
+
+  /*
+
+    ----------------   Comanda Controller   ----------------    
+
+  */
   .controller('ComandaCtrl', function ($scope, StorageService, $stateParams) {
-    $scope.comanda = $stateParams
+
+    $scope.$on('$ionicView.enter', function (e) {
+      var firma = StorageService.loadData('firma');
+
+      Object.keys(firma.comenzi.comanda).forEach(function (stkey) {
+        // Get the order with the specific ID
+        if (firma.comenzi.comanda[stkey].IDcomanda == $stateParams.comandaId)
+          $scope.comanda = firma.comenzi.comanda[stkey];
+      });
+    });
   })
 
+
+  /*
+
+    ----------------   Curieri Controller   ----------------    
+
+  */
   .controller('CurieriCtrl', function ($scope, StorageService) {
     // Incarca curierii din local storage
     $scope.$on('$ionicView.enter', function (e) {
@@ -32,67 +58,69 @@ angular.module('starter.controllers', [])
     });
   })
 
+
+
+  /*
+
+    ----------------   Curier Controller   ----------------    
+
+  */
   .controller('CurierCtrl', function ($scope, StorageService, $stateParams) {
     $scope.curier = $stateParams
   })
 
+
+
+  /*
+
+    ----------------   Browse Controller   ----------------    
+
+  */
   .controller('BrowseCtrl', function ($scope, StorageService) {
+
+    // define(function (require) {
+    //   var validator = require('xsd-schema-validator');
+    // });
+
+
     $scope.firma = {};
-    $scope.firma.curieri = [{
-        title: 'Curier1',
-        id: 1
-      },
-      {
-        title: 'Curier2',
-        id: 2
-      },
-      {
-        title: 'Curier3',
-        id: 3
-      },
-      {
-        title: 'Curier4',
-        id: 4
-      },
-      {
-        title: 'Curier5',
-        id: 5
-      },
-      {
-        title: 'Curier6',
-        id: 6
+    $scope.XMLloadedSuccesfully = false;
+
+    $scope.browseXML = function () {
+      fileChooser.open(function (uri) {
+          $scope.XMLuri = uri;
+          $scope.load();
+          $scope.XMLloadedSuccesfully = true;
+          $scope.$apply();
+          StorageService.saveData('firma', $scope.firma.firma);
+          StorageService.saveData('XMLuri', $scope.XMLuri);
+        },
+        function () {
+          alert("File could not be loaded!");
+          $scope.XMLloadedSuccesfully = false;
+          $scope.$apply()
+        });
+    };
+
+    $scope.load = function () {
+      xhr = new XMLHttpRequest();
+      xhr.open('GET', XMLuri, false);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var x2js = new X2JS();
+          var jsonObj = x2js.xml2js(xhr.responseText);
+          $scope.firma = angular.copy(jsonObj);
+        }
       }
-    ];
-    $scope.firma.comenzi = [{
-        title: 'Comanda1',
-        id: 1
-      },
-      {
-        title: 'Comanda2',
-        id: 2
-      },
-      {
-        title: 'Comanda3',
-        id: 3
-      },
-      {
-        title: 'Comanda4',
-        id: 4
-      },
-      {
-        title: 'Comanda5',
-        id: 5
-      },
-      {
-        title: 'Comanda6',
-        id: 6
-      }
-    ];
-    $scope.$on('$ionicView.enter', function (e) {
-      StorageService.saveData('firma', $scope.firma);
-    });
+      xhr.send();
+    };
   })
 
+  /*
+
+    ----------------   Tabel Controller   ----------------    
+
+  */
   .controller('TabelCtrl', function ($scope, StorageService) {
     // Incarca tot din local storage
     $scope.$on('$ionicView.enter', function (e) {
@@ -100,6 +128,11 @@ angular.module('starter.controllers', [])
     });
   })
 
+  /*
+
+    ----------------   Storage Service   ----------------    
+
+  */
   .service('StorageService', function () {
     return {
       saveData: function (key, item) {

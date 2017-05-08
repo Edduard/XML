@@ -1,1 +1,1 @@
-{"plugins":["cordova-plugin-whitelist","cordova-plugin-console","cordova-plugin-device","cordova-plugin-splashscreen","cordova-plugin-statusbar","ionic-plugin-keyboard"]}
+{"plugins":["cordova-plugin-whitelist","cordova-plugin-console","cordova-plugin-device","cordova-plugin-splashscreen","cordova-plugin-statusbar","ionic-plugin-keyboard","com.megster.cordova.FileChooser"]}
