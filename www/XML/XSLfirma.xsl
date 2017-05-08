@@ -128,7 +128,7 @@
       <td><xsl:value-of select="curier/masina/model"/></td>
       <td><xsl:value-of select="curier/masina/numarInmatriculare"/></td>
       <td><xsl:value-of select="curier/masina/tipMasina"/></td>
-      <td><xsl:value-of select="curier/masina/an"/></td>
+      <td><xsl:value-of select="curier/masina/anFabricatie"/></td>
       <td><xsl:value-of select="curier/masina/culoare"/></td>
     </tr>
     </xsl:for-each>

@@ -1,45 +1,4 @@
-<!DOCTYPE firma
-[
-<!ELEMENT firma (comenzi)>
-<!ELEMENT comenzi (comanda+)>
-<!ELEMENT comanda (IDcomanda, tipComanda, tipColet, colet, curier, data)>
-<!ELEMENT IDcomanda (#PCDATA)>
-<!ELEMENT tipComanda (#PCDATA)>
-<!ELEMENT tipColet (#PCDATA)>
-<!ELEMENT colet (IDcolet, greutate, dimensiuni, expeditor, destinatar)>
-<!ELEMENT IDcolet (#PCDATA)>
-<!ELEMENT greutate (#PCDATA)>
-<!ELEMENT dimensiuni (inaltime, latime, lungime)>
-<!ELEMENT inaltime (#PCDATA)>
-<!ELEMENT latime (#PCDATA)>
-<!ELEMENT lungime (#PCDATA)>
-<!ELEMENT expeditor (nume, prenume, telefon, adresa)>
-<!ELEMENT nume (#PCDATA)>
-<!ELEMENT prenume (#PCDATA)>
-<!ELEMENT telefon (#PCDATA)>
-<!ELEMENT adresa (judet, oras, strada, numar, bloc, apartament)>
-<!ELEMENT judet (#PCDATA)>
-<!ELEMENT oras (#PCDATA)>
-<!ELEMENT strada (#PCDATA)>
-<!ELEMENT numar (#PCDATA)>
-<!ELEMENT bloc (#PCDATA)>
-<!ELEMENT apartament (#PCDATA)>
-<!ELEMENT destinatar (nume, prenume, telefon, adresa)>
-<!ELEMENT curier (IDcurier, nume, prenume, telefon, masina)>
-<!ELEMENT IDcurier (#PCDATA)>
-<!ELEMENT masina (marca, model, numarInmatriculare, tipMasina, anFabricatie, culoare)>
-<!ELEMENT marca (#PCDATA)>
-<!ELEMENT model (#PCDATA)>
-<!ELEMENT numarInmatriculare (#PCDATA)>
-<!ELEMENT tipMasina (#PCDATA)>
-<!ELEMENT anFabricatie (#PCDATA)>
-<!ELEMENT culoare (#PCDATA)>
-<!ELEMENT data (an, luna, zi, ora)>
-<!ELEMENT an (#PCDATA)>
-<!ELEMENT luna (#PCDATA)>
-<!ELEMENT zi (#PCDATA)>
-<!ELEMENT ora (#PCDATA)>
-]>
+<!DOCTYPE firma>
 <firma>
     <comenzi>
         <comanda>

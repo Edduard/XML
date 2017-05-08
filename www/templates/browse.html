@@ -4,9 +4,22 @@
     <button class="button button-block button-positive" ng-click="browseXML()">
       Browse XML file
     </button>
-    <div ng-if="XMLloadedSuccesfully">
+    <div ng-if="XMLloadedSuccesfully == 1">
       <i class="icon icon ion-checkmark-circled" style="color: green"></i>
-      <span style="color: green"> <b>XML loaded</b> </span>
+      <span style="color: green"> <b>XML succesfully loaded</b> </span>
     </div>
+    <div ng-if="XMLparsedSuccesfully == 1">
+      <i class="icon icon ion-checkmark-circled" style="color: green"></i>
+      <span style="color: green"> <b>XML succesfully parsed</b> </span>
+    </div>
+    <div ng-if="XMLloadedSuccesfully == 0">
+      <i class="icon icon ion-cloe-circled" style="color: red"></i>
+      <span style="color: red"> <b>XML failed to load</b> </span>
+    </div>
+    <div ng-if="XMLparsedSuccesfully == 0">
+      <i class="icon icon ion-close-circled" style="color: red"></i>
+      <span style="color: red"> <b>XML failed to be parsed</b> </span>
+    </div>
+
   </ion-content>
 </ion-view>

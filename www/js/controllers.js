@@ -84,20 +84,21 @@ angular.module('starter.controllers', [])
 
 
     $scope.firma = {};
-    $scope.XMLloadedSuccesfully = false;
+    $scope.XMLloadedSuccesfully = -1;
+    $scope.XMLparsedSuccesfully = -1;
 
     $scope.browseXML = function () {
       fileChooser.open(function (uri) {
           $scope.XMLuri = uri;
           $scope.load();
-          $scope.XMLloadedSuccesfully = true;
+          $scope.XMLloadedSuccesfully = 1;
           $scope.$apply();
           StorageService.saveData('firma', $scope.firma.firma);
           StorageService.saveData('XMLuri', $scope.XMLuri);
         },
         function () {
           alert("File could not be loaded!");
-          $scope.XMLloadedSuccesfully = false;
+          $scope.XMLloadedSuccesfully = 0;
           $scope.$apply()
         });
     };
@@ -110,6 +111,11 @@ angular.module('starter.controllers', [])
           var x2js = new X2JS();
           var jsonObj = x2js.xml2js(xhr.responseText);
           $scope.firma = angular.copy(jsonObj);
+          if ($scope.firma && jsonObj) $scope.XMLparsedSuccesfully = 1;
+          else {
+            alert("XML could not be parsed!");
+            $scope.XMLparsedSuccesfully = 0;
+          }
         }
       }
       xhr.send();
