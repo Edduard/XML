@@ -27,11 +27,13 @@
 <!ELEMENT destinatar (nume, prenume, telefon, adresa)>
 <!ELEMENT curier (IDcurier, nume, prenume, telefon, masina)>
 <!ELEMENT IDcurier (#PCDATA)>
-<!ELEMENT masina (marca, model, numarInmatriculare, tipMasina)>
+<!ELEMENT masina (marca, model, numarInmatriculare, tipMasina, anFabricatie, culoare)>
 <!ELEMENT marca (#PCDATA)>
 <!ELEMENT model (#PCDATA)>
 <!ELEMENT numarInmatriculare (#PCDATA)>
 <!ELEMENT tipMasina (#PCDATA)>
+<!ELEMENT anFabricatie (#PCDATA)>
+<!ELEMENT culoare (#PCDATA)>
 <!ELEMENT data (an, luna, zi, ora)>
 <!ELEMENT an (#PCDATA)>
 <!ELEMENT luna (#PCDATA)>
@@ -90,6 +92,8 @@
                     <model>M4</model>
                     <numarInmatriculare>B123ASD</numarInmatriculare>
                     <tipMasina>Sedan</tipMasina>
+                    <anFabricatie>2010</anFabricatie>
+                    <culoare>negru</culoare>
                 </masina>
             </curier>
             <data>
@@ -149,6 +153,8 @@
                     <model>RS8</model>
                     <numarInmatriculare>B222ZZZ</numarInmatriculare>
                     <tipMasina>Limuzina</tipMasina>
+                    <anFabricatie>2014</anFabricatie>
+                    <culoare>rosu</culoare>
                 </masina>
             </curier>
             <data>
@@ -208,6 +214,8 @@
                     <model>Sprinter</model>
                     <numarInmatriculare>B333BBB</numarInmatriculare>
                     <tipMasina>Duba</tipMasina>
+                    <anFabricatie>2016</anFabricatie>
+                    <culoare>alb</culoare>
                 </masina>
             </curier>
             <data>
@@ -267,6 +275,8 @@
                     <model>Sprinter</model>
                     <numarInmatriculare>B333BBB</numarInmatriculare>
                     <tipMasina>Duba</tipMasina>
+                    <anFabricatie>2000</anFabricatiean>
+                    <culoare>negru</culoare>
                 </masina>
             </curier>
             <data>

@@ -1,112 +1,109 @@
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="firma">
-    <xs:complexType>
+  <xs:element name="firma" type="firmaType"/>
+  <xs:complexType name="dimensiuniType">
+    <xs:sequence>
+      <xs:element type="xs:integer" name="inaltime"/>
+      <xs:element type="xs:integer" name="latime"/>
+      <xs:element type="xs:integer" name="lungime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="adresaType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="judet"/>
+      <xs:element type="xs:string" name="oras"/>
+      <xs:element type="xs:string" name="strada"/>
+      <xs:element type="xs:short" name="numar"/>
+      <xs:element type="xs:string" name="bloc"/>
+      <xs:element type="xs:string" name="apartament"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="expeditorType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="nume"/>
+      <xs:element type="xs:string" name="prenume"/>
+      <xs:element type="xs:string" name="telefon"/>
+      <xs:element type="adresaType" name="adresa"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="destinatarType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="nume"/>
+      <xs:element type="xs:string" name="prenume"/>
+      <xs:element type="xs:string" name="telefon"/>
+      <xs:element type="adresaType" name="adresa"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="coletType">
+    <xs:sequence>
+      <xs:element type="xs:integer" name="IDcolet"/>
+      <xs:element type="restrictieGreutate" name="greutate"/>
+      <xs:element type="dimensiuniType" name="dimensiuni"/>
+      <xs:element type="expeditorType" name="expeditor"/>
+      <xs:element type="destinatarType" name="destinatar"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="masinaType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="marca"/>
+      <xs:element type="xs:string" name="model"/>
+      <xs:element type="xs:string" name="numarInmatriculare"/>
+      <xs:element type="xs:string" name="tipMasina"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="curierType">
+    <xs:sequence>
+      <xs:element type="xs:integer" name="IDcurier"/>
+      <xs:element type="xs:string" name="nume"/>
+      <xs:element type="xs:string" name="prenume"/>
+      <xs:element type="xs:string" name="telefon"/>
+      <xs:element type="masinaTypeExtended" name="masina"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dataType">
+    <xs:sequence>
+      <xs:element type="xs:short" name="an"/>
+      <xs:element type="xs:integer" name="luna"/>
+      <xs:element type="xs:integer" name="zi"/>
+      <xs:element type="xs:string" name="ora"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="comandaType">
+    <xs:sequence>
+      <xs:element type="xs:integer" name="IDcomanda"/>
+      <xs:element type="xs:string" name="tipComanda"/>
+      <xs:element type="xs:string" name="tipColet"/>
+      <xs:element type="coletType" name="colet"/>
+      <xs:element type="curierType" name="curier"/>
+      <xs:element type="dataType" name="data"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="comenziType">
+    <xs:sequence>
+      <xs:element type="comandaType" name="comanda" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="firmaType">
+    <xs:sequence>
+      <xs:element type="comenziType" name="comenzi"/>
+    </xs:sequence>
+  </xs:complexType>
+
+<xs:simpleType name="restrictieGreutate"> 
+  <xs:restriction base="xs:integer">
+    <xs:minInclusive value="0"/>
+    <xs:maxInclusive value="200"/> 
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="masinaTypeExtended">
+  <xs:complexContent>
+    <xs:extension base="masinaType">
       <xs:sequence>
-        <xs:element name="comenzi">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="comanda" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="xs:int" name="IDcomanda"/>
-                    <xs:element type="xs:string" name="tipComanda"/>
-                    <xs:element type="xs:string" name="tipColet"/>
-                    <xs:element name="colet">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element type="xs:int" name="IDcolet"/>
-                          <xs:element type="xs:int" name="greutate"/>
-                          <xs:element name="dimensiuni">
-                            <xs:complexType>
-                              <xs:sequence>
-                                <xs:element type="xs:int" name="inaltime"/>
-                                <xs:element type="xs:int" name="latime"/>
-                                <xs:element type="xs:int" name="lungime"/>
-                              </xs:sequence>
-                            </xs:complexType>
-                          </xs:element>
-                          <xs:element name="expeditor">
-                            <xs:complexType>
-                              <xs:sequence>
-                                <xs:element type="xs:string" name="nume"/>
-                                <xs:element type="xs:string" name="prenume"/>
-                                <xs:element type="xs:int" name="telefon"/>
-                                <xs:element name="adresa">
-                                  <xs:complexType>
-                                    <xs:sequence>
-                                      <xs:element type="xs:string" name="judet"/>
-                                      <xs:element type="xs:string" name="oras"/>
-                                      <xs:element type="xs:string" name="strada"/>
-                                      <xs:element type="xs:string" name="numar"/>
-                                      <xs:element type="xs:string" name="bloc"/>
-                                      <xs:element type="xs:string" name="apartament"/>
-                                    </xs:sequence>
-                                  </xs:complexType>
-                                </xs:element>
-                              </xs:sequence>
-                            </xs:complexType>
-                          </xs:element>
-                          <xs:element name="destinatar">
-                            <xs:complexType>
-                              <xs:sequence>
-                                <xs:element type="xs:string" name="nume"/>
-                                <xs:element type="xs:string" name="prenume"/>
-                                <xs:element type="xs:int" name="telefon"/>
-                                <xs:element name="adresa">
-                                  <xs:complexType>
-                                    <xs:sequence>
-                                      <xs:element type="xs:string" name="judet"/>
-                                      <xs:element type="xs:string" name="oras"/>
-                                      <xs:element type="xs:string" name="strada"/>
-                                      <xs:element type="xs:string" name="numar"/>
-                                      <xs:element type="xs:string" name="bloc"/>
-                                      <xs:element type="xs:string" name="apartament"/>
-                                    </xs:sequence>
-                                  </xs:complexType>
-                                </xs:element>
-                              </xs:sequence>
-                            </xs:complexType>
-                          </xs:element>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="curier">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element type="xs:int" name="IDcurier"/>
-                          <xs:element type="xs:string" name="nume"/>
-                          <xs:element type="xs:string" name="prenume"/>
-                          <xs:element type="xs:int" name="telefon"/>
-                          <xs:element name="masina">
-                            <xs:complexType>
-                              <xs:sequence>
-                                <xs:element type="xs:string" name="marca"/>
-                                <xs:element type="xs:string" name="model"/>
-                                <xs:element type="xs:string" name="numarInmatriculare"/>
-                                <xs:element type="xs:string" name="tipMasina"/>
-                              </xs:sequence>
-                            </xs:complexType>
-                          </xs:element>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="data">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element type="xs:int" name="an"/>
-                          <xs:element type="xs:int" name="luna"/>
-                          <xs:element type="xs:int" name="zi"/>
-                          <xs:element type="xs:string" name="ora"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
+        <xs:element name="anFabricatie" type="xs:integer"/>
+        <xs:element name="culoare" type="xs:string"/>
       </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
+
 </xs:schema>

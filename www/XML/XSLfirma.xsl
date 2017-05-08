@@ -115,6 +115,8 @@
       <th style="text-align:left">Model</th>
       <th style="text-align:left">Nr. Inmatriculare</th>
       <th style="text-align:left">Tip masina</th>
+      <th style="text-align:left">An</th>
+      <th style="text-align:left">Culoare</th>
     </tr>
     <xsl:for-each select="firma/comenzi/comanda">
     <tr>
@@ -126,6 +128,8 @@
       <td><xsl:value-of select="curier/masina/model"/></td>
       <td><xsl:value-of select="curier/masina/numarInmatriculare"/></td>
       <td><xsl:value-of select="curier/masina/tipMasina"/></td>
+      <td><xsl:value-of select="curier/masina/an"/></td>
+      <td><xsl:value-of select="curier/masina/culoare"/></td>
     </tr>
     </xsl:for-each>
   </table>
