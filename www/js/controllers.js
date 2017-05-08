@@ -2,13 +2,6 @@ angular.module('starter.controllers', [])
 
   .controller('AppCtrl', function ($scope, $ionicModal, $timeout, StorageService) {
 
-    // With the new view caching in Ionic, Controllers are only called
-    // when they are recreated or on app start, instead of every page change.
-    // To listen for when this page is active (for example, to refresh data),
-    // listen for the $ionicView.enter event:
-    //$scope.$on('$ionicView.enter', function(e) {
-    //});
-
   })
 
   /*
@@ -34,42 +27,16 @@ angular.module('starter.controllers', [])
   .controller('ComandaCtrl', function ($scope, StorageService, $stateParams) {
 
     $scope.$on('$ionicView.enter', function (e) {
+      // Incarca comenzile din local storage
       var firma = StorageService.loadData('firma');
 
       Object.keys(firma.comenzi.comanda).forEach(function (stkey) {
-        // Get the order with the specific ID
+        // Incarca comanda care are ID-ul primit prin stateParams
         if (firma.comenzi.comanda[stkey].IDcomanda == $stateParams.comandaId)
           $scope.comanda = firma.comenzi.comanda[stkey];
       });
     });
   })
-
-
-  /*
-
-    ----------------   Curieri Controller   ----------------    
-
-  */
-  .controller('CurieriCtrl', function ($scope, StorageService) {
-    // Incarca curierii din local storage
-    $scope.$on('$ionicView.enter', function (e) {
-      var firma = StorageService.loadData('firma');
-      $scope.curieri = firma.curieri;
-    });
-  })
-
-
-
-  /*
-
-    ----------------   Curier Controller   ----------------    
-
-  */
-  .controller('CurierCtrl', function ($scope, StorageService, $stateParams) {
-    $scope.curier = $stateParams
-  })
-
-
 
   /*
 
@@ -84,9 +51,12 @@ angular.module('starter.controllers', [])
 
 
     $scope.firma = {};
+
+    // Variabile pentru a putea afisa in front-end faptul ca fisierele au fost parsate/incarcate sau nu 
     $scope.XMLloadedSuccesfully = -1;
     $scope.XMLparsedSuccesfully = -1;
 
+    // Functia de incarcare a fisierului. Se foloseste de API-ul fileChooser
     $scope.browseXML = function () {
       fileChooser.open(function (uri) {
           $scope.XMLuri = uri;
@@ -103,6 +73,7 @@ angular.module('starter.controllers', [])
         });
     };
 
+    // Functia care parseaza fisierul XMl cu ajutorul API-ului xhr
     $scope.load = function () {
       xhr = new XMLHttpRequest();
       xhr.open('GET', $scope.XMLuri, false);
@@ -137,6 +108,7 @@ angular.module('starter.controllers', [])
       displayResult();
     });
 
+    // Pentru a putea afisa fisierul XML folosind foile de stiluri din XSL
     function loadXMLDoc(filename) {
       if (window.ActiveXObject) {
         xhttp = new ActiveXObject("Msxml2.XMLHTTP");

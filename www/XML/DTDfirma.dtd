@@ -1,4 +1,4 @@
-[
+<?xml version=”1.0”?>
 <!ELEMENT firma (comenzi)>
 <!ELEMENT comenzi (comanda+)>
 <!ELEMENT comanda (IDcomanda, tipComanda, tipColet, colet, curier, data)>
@@ -38,4 +38,3 @@
 <!ELEMENT luna (#PCDATA)>
 <!ELEMENT zi (#PCDATA)>
 <!ELEMENT ora (#PCDATA)>
-]

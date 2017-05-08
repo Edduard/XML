@@ -70,26 +70,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             controller: 'ComandaCtrl'
           }
         }
-      })
-
-      .state('app.curieri', {
-        url: '/curieri',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/curieri.html',
-            controller: 'CurieriCtrl'
-          }
-        }
-      })
-
-      .state('app.singleCurier', {
-        url: '/curieri/:curierId',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/curier.html',
-            controller: 'CurierCtrl'
-          }
-        }
       });
 
     // if none of the above states are matched, use this as the fallback
